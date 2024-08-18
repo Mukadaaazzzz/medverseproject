@@ -10,6 +10,8 @@ import {
   Box,
   Container,
   Paper,
+  // eslint-disable-next-line no-unused-vars
+  Link,
 } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import HomeIcon from "@mui/icons-material/Home";
@@ -24,24 +26,17 @@ const ChatPage = () => {
   const handleSendMessage = async () => {
     if (inputValue.trim() === "") return;
 
-    // Add the user's message to the chat
     setMessages([...messages, { text: inputValue, sender: "user" }]);
 
     try {
-      // Send the prompt to the backend API
       const response = await axios.post(
         "https://medverse-5ciz.onrender.com/api/generate-content",
         { prompt: inputValue }
       );
 
-      console.log("Full API response:", response.data);
-
-      // Extract the content from the API response
       const reply = response.data?.content;
 
-      // Check if the reply exists
       if (reply) {
-        // Add the AI's response to the chat
         setMessages((prevMessages) => [
           ...prevMessages,
           { text: reply, sender: "ai" },
@@ -53,7 +48,6 @@ const ChatPage = () => {
       console.error("Error sending message:", error.message);
     }
 
-    // Clear the input field
     setInputValue("");
   };
 
@@ -66,7 +60,6 @@ const ChatPage = () => {
         backgroundColor: "#f5f5f5",
       }}
     >
-      {/* Header */}
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
@@ -84,7 +77,6 @@ const ChatPage = () => {
         </Toolbar>
       </AppBar>
 
-      {/* Hero Message */}
       <Container maxWidth="md" sx={{ mt: 4, mb: 4 }}>
         <Paper
           elevation={3}
@@ -105,7 +97,6 @@ const ChatPage = () => {
         </Paper>
       </Container>
 
-      {/* Chat Area */}
       <Container maxWidth="md" sx={{ flexGrow: 1, mb: 4 }}>
         <Paper
           elevation={3}
@@ -157,7 +148,6 @@ const ChatPage = () => {
         </Paper>
       </Container>
 
-      {/* Input Area */}
       <Container maxWidth="md">
         <Box
           sx={{
@@ -187,6 +177,24 @@ const ChatPage = () => {
           </Button>
         </Box>
       </Container>
+
+      {/* Footer */}
+      <Box
+        sx={{
+          backgroundColor: "#3f51b5",
+          color: "#fff",
+          textAlign: "center",
+          padding: 2,
+          mt: 4,
+        }}
+      >
+        <Typography variant="body2" sx={{ fontWeight: "bold" }}>
+          &copy; {new Date().getFullYear()} Medverse24. All rights reserved.
+        </Typography>
+        <Typography variant="body2" sx={{ fontStyle: "italic" }}>
+          Made with ♥ by Mukadaz Labs
+        </Typography>
+      </Box>
     </Box>
   );
 };

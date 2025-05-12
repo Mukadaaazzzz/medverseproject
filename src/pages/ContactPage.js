@@ -37,7 +37,7 @@ const float = keyframes`
   100% { transform: translateY(-10px); }
 `;
 
-const AboutPage = () => {
+const ContactPage = () => {
   const navigate = useNavigate();
   const theme = useTheme();
   const [anchorEl, setAnchorEl] = useState(null);
@@ -51,7 +51,7 @@ const AboutPage = () => {
     setAnchorEl(null);
   };
 
-  // Navigation items (matched with HomePage and Medverse24Chat)
+  // Navigation items (matched with other pages)
   const navItems = [
     { name: "Home", link: "/" },
     { name: "About", link: "/about" },
@@ -88,8 +88,8 @@ const AboutPage = () => {
             borderRadius: "50%",
             opacity: 0.2,
             animation: `${float} 6s ease-in-out infinite`,
-            top: "15%",
-            left: "5%",
+            top: "25%",
+            left: "15%",
           },
           "&::after": {
             content: '""',
@@ -100,13 +100,13 @@ const AboutPage = () => {
             borderRadius: "50%",
             opacity: 0.2,
             animation: `${float} 8s ease-in-out infinite`,
-            top: "70%",
-            right: "10%",
+            top: "60%",
+            right: "20%",
           },
         }}
       />
 
-      {/* Navigation Bar (matched with HomePage and Medverse24Chat) */}
+      {/* Navigation Bar (matched with other pages) */}
       <AppBar
         position="sticky"
         sx={{
@@ -204,109 +204,92 @@ const AboutPage = () => {
         }}
       >
         <Grid container spacing={4} alignItems="center">
-          {/* Illustration Section */}
+          {/* Contact Details Section */}
           <Grid item xs={12} md={6}>
             <Box
               sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: { xs: "200px", md: "400px" },
                 animation: `${fadeInUp} 1.5s ease-out`,
+                p: 4,
               }}
             >
-              <MedicalServices
+              <Typography
+                variant="h3"
                 sx={{
-                  fontSize: { xs: 100, md: 200 },
-                  color: theme.palette.primary.main,
-                  opacity: 0.2,
-                  animation: `${float} 4s ease-in-out infinite`,
-                }}
-              />
-            </Box>
-          </Grid>
-
-          {/* Text Section */}
-          <Grid item xs={12} md={6}>
-            <Typography
-              variant="h3"
-              sx={{
-                fontWeight: 800,
-                background: `linear-gradient(45deg, ${theme.palette.primary.main}, #2a9d8f)`,
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                mb: 3,
-                animation: `${fadeInUp} 1.5s ease-out`,
-                fontSize: { xs: "2rem", md: "3rem" },
-              }}
-            >
-              About Medverse24
-            </Typography>
-            <Typography
-              variant="h6"
-              sx={{
-                mb: 4,
-                lineHeight: 1.6,
-                color: theme.palette.text.secondary,
-                animation: `${fadeInUp} 1.5s ease-out 0.3s`,
-                animationFillMode: "both",
-                fontSize: { xs: "1rem", md: "1.25rem" },
-              }}
-            >
-              Medverse24 is dedicated to helping patients understand their medical
-              conditions by breaking down complex medical terminologies into
-              simple, understandable information. Our goal is to bridge the gap
-              between doctors and patients, ensuring that patients feel empowered
-              and informed every step of the way.
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                mb: 4,
-                color: theme.palette.text.secondary,
-                animation: `${fadeInUp} 1.5s ease-out 0.6s`,
-                animationFillMode: "both",
-              }}
-            >
-              This project is a creation of Mukadaz Labs, committed to building
-              technology-driven solutions that make a real impact on people.
-            </Typography>
-            <Box
-              sx={{
-                display: "flex",
-                gap: 2,
-                animation: `${fadeInUp} 1.5s ease-out 0.9s`,
-                animationFillMode: "both",
-              }}
-            >
-              <Button
-                variant="contained"
-                sx={{
+                  fontWeight: 800,
                   background: `linear-gradient(45deg, ${theme.palette.primary.main}, #2a9d8f)`,
-                  color: "white",
-                  textTransform: "none",
-                  fontSize: "1rem",
-                  px: 4,
-                  py: 1.5,
-                  borderRadius: 3,
-                  "&:hover": {
-                    transform: "translateY(-2px)",
-                    boxShadow: `0 8px 24px ${theme.palette.primary.main}50`,
-                  },
-                  transition: "transform 0.3s, box-shadow 0.3s",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  mb: 3,
+                  fontSize: { xs: "2rem", md: "3rem" },
                 }}
-                onClick={() => navigate("/learn")} // Placeholder for future implementation
               >
-                Learn More
-              </Button>
+                Contact Us
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  mb: 4,
+                  lineHeight: 1.6,
+                  color: theme.palette.text.secondary,
+                  animation: `${fadeInUp} 1.5s ease-out 0.3s`,
+                  animationFillMode: "both",
+                  fontSize: { xs: "1rem", md: "1.25rem" },
+                }}
+              >
+                Have questions or want to collaborate? Reach out to Mukadaz Labs through our website or LinkedIn.
+              </Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: 2,
+                  animation: `${fadeInUp} 1.5s ease-out 0.6s`,
+                  animationFillMode: "both",
+                }}
+              >
+                <Link
+                  href="https:///github.com/Mukadaaazzzz"
+                  target="_blank"
+                  rel="noopener"
+                  sx={{
+                    textDecoration: "none",
+                    color: theme.palette.primary.main,
+                    fontWeight: "bold",
+                    "&:hover": {
+                      color: theme.palette.primary.dark,
+                      textDecoration: "underline",
+                    },
+                  }}
+                >
+                  Github
+                </Link>
+                <Link
+                  href="https://linkedin.com/in/mukadaz-taofeeq" 
+                  target="_blank"
+                  rel="noopener"
+                  sx={{
+                    textDecoration: "none",
+                    color: theme.palette.primary.main,
+                    fontWeight: "bold",
+                    "&:hover": {
+                      color: theme.palette.primary.dark,
+                      textDecoration: "underline",
+                    },
+                  }}
+                >
+                  LinkedIn Profile
+                </Link>
+              </Box>
               <Link
                 href="/"
                 sx={{
-                  display: "flex",
-                  alignItems: "center",
+                  display: "block",
+                  mt: 4,
                   textDecoration: "none",
                   color: theme.palette.primary.main,
                   fontWeight: "bold",
+                  animation: `${fadeInUp} 1.5s ease-out 0.9s`,
+                  animationFillMode: "both",
                   "&:hover": {
                     color: theme.palette.primary.dark,
                   },
@@ -318,6 +301,29 @@ const AboutPage = () => {
               >
                 Back to Homepage
               </Link>
+            </Box>
+          </Grid>
+
+          {/* Illustration Section */}
+          <Grid item xs={12} md={6}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: { xs: "200px", md: "400px" },
+                animation: `${fadeInUp} 1.5s ease-out 0.3s`,
+                animationFillMode: "both",
+              }}
+            >
+              <MedicalServices
+                sx={{
+                  fontSize: { xs: 100, md: 200 },
+                  color: theme.palette.primary.main,
+                  opacity: 0.2,
+                  animation: `${float} 4s ease-in-out infinite`,
+                }}
+              />
             </Box>
           </Grid>
         </Grid>
@@ -350,4 +356,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default ContactPage;

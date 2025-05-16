@@ -22,4 +22,4 @@ Responsive, user-friendly interface with Material-UI components.
 Tech Stack: React, Tailwind CSS, Material-UI, Axios, Netlify.
 
 Live Site
-Explore Medverse24 at medverseproject.netlify.app.
+Explore Medverse24 at https://medverseproject.netlify.app
